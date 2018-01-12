@@ -48,9 +48,37 @@
     statusChangeCallback(response);
   });
 }
+
+function setElements(isLoggedIn){
+  if(LoggedIn){
+    document.getElementById('logoutBtn').style.display = 'block';
+    document.getElementById('fbBtn').style.display = 'none';
+
+  } else{
+    document.getElementById('logoutBtn').style.display = 'none';
+    document.getElementById('fbBtn').style.display = 'block';
+
+
+  }
+
+
+
+}
 	
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
 	
-	
+  function logoutBtn(){
+  FB.logout(function(response) {
+   // Person is now logged out
+});
+	}
 	
 
 
@@ -76,18 +104,23 @@
           </li>
 
 
+
           
         
         </ul>
 
         <ul class="nav nav-bar navbar-right">
-    	<li><a class="nav-item" id="logoutBtn" href='' onclick="logout()">logout</a></li>
+    	<li><a class="nav-item" id="logoutBtn">logout</a></li>
 
     	<fb:login-button 
 		id='fbBtn'
   		scope="public_profile,email"
   		onlogin="checkLoginState();">
 		</fb:login-button>
+
+
+
+
     	
 
         </ul>
