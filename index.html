@@ -65,20 +65,14 @@ function setElements(isLoggedIn){
 
 }
 	
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-    });
-  }
 	
   function logoutBtn(){
-  FB.logout(function(response) {
-   // Person is now logged out
-});
-	}
+    FB.logout(function(response){
+      setElements(false);
+    });
+
+  }
+	
 	
 
 
@@ -104,21 +98,18 @@ function setElements(isLoggedIn){
           </li>
 
 
-
           
         
         </ul>
 
         <ul class="nav nav-bar navbar-right">
-    	<li><a class="nav-item" id="logoutBtn">logout</a></li>
+    	<li><a class="nav-item" id="logoutBtn" href='' onclick="logout()">logout</a></li>
 
     	<fb:login-button 
 		id='fbBtn'
   		scope="public_profile,email"
   		onlogin="checkLoginState();">
 		</fb:login-button>
-
-
 
 
     	
