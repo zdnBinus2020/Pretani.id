@@ -1,10 +1,114 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>my app</title>
-</head>
-<body>
-	<h1>My app</h1>
+  <head>
+    <meta charset="utf-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+    <style media="screen">
+    	#fbBtn{margin-right: 10px;}
+    	#profile, #logoutBtn{display: none;}
+    </style>
+    
+    </style>
+  </head>
+  <body>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '351970795271282',
+          cookie     : true,
+          xfbml      : true,
+          version    : 'v2.11'
+        });
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
+      };
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src="https://connect.facebook.net/en_US/all.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+       
+       function statusChangeCallback(response){
+         if(response.status === 'connected'){
+           console.log('Logged in and authenticated');
+           setElements(true);
+           testAPI();
+         } else {
+           console.log('Not authenticated');
+           setElements(false);
+         }
+       }
 
-</body>
+
+	function checkLoginState() {
+ 	 FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+	
+	
+	
+	
+
+
+      
+    </script>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">BlueJack</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="#">Borrow</a>
+          </li>
+
+
+          
+        
+        </ul>
+
+        <ul class="nav nav-bar navbar-right">
+    	<li><a class="nav-item" id="logoutBtn" href='' onclick="logout()">logout</a></li>
+
+    	<fb:login-button 
+		id='fbBtn'
+  		scope="public_profile,email"
+  		onlogin="checkLoginState();">
+		</fb:login-button>
+    	
+
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container">
+    	<h3 id="heading">Log in to view your profile</h3>
+    	<div id="profile"></div>
+    </div>
+
+
+
+
+
+    
+  </body>
 </html>
