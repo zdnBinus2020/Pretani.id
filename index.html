@@ -54,6 +54,7 @@ function setElements(isLoggedIn){
   if(isLoggedIn){
     document.getElementById('logoutBtn').style.display = 'block';
     document.getElementById('fbBtn').style.display = 'none';
+    document.getElementById('fbtxt').style.display = 'none';
 
   } else{
     document.getElementById('logoutBtn').style.display = 'none';
@@ -72,6 +73,10 @@ function setElements(isLoggedIn){
       setElements(false);
     });
 
+  }
+
+  function fbtxt(){
+    getElementById('public_profile').style.display = 'none';
   }
 	
 	
@@ -125,7 +130,7 @@ function setElements(isLoggedIn){
     </nav>
 
     <div class="container">
-    	<h3 id="heading">Log in to view your profile</h3>
+    	<h3 id="heading">hello <b id="fbtxt"></b></h3>
     	<div id="profile"></div>
     </div>
 
