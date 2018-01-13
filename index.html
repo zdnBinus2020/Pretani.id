@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
     <style media="screen">
     	#fbBtn{margin-right: 10px;}
-      #logoutBtn{margin-right: 10px;}
+      #Btn{margin-right: 10px;}
       #likeBtn{margin-right: 14px;}
     	#profile, #logoutBtn{display: none;}
     </style>
@@ -54,7 +54,6 @@ function setElements(isLoggedIn){
   if(isLoggedIn){
     document.getElementById('logoutBtn').style.display = 'block';
     document.getElementById('fbBtn').style.display = 'none';
-    document.getElementById('fbtxt').style.display = 'none';
 
   } else{
     document.getElementById('logoutBtn').style.display = 'none';
@@ -73,10 +72,6 @@ function setElements(isLoggedIn){
       setElements(false);
     });
 
-  }
-
-  function fbtxt(){
-    getElementById('public_profile').style.display = 'none';
   }
 	
 	
@@ -130,7 +125,26 @@ function setElements(isLoggedIn){
     </nav>
 
     <div class="container">
-    	<h3 id="heading">hello <b id="fbtxt"></b></h3>
+    	<h3 id="heading">Log in to view your profile</h3>
+      <form action="book.php" method="getElementById">
+        <?php
+        echo '<table>
+        <tr>
+        <td>Forename</td>
+        <td>Surname</td>
+        </tr>';
+        $sql="SELECT * FROM BlueJack = '".$_GET["sequence"]."' ";
+        $rs=mysql_query($sql,$conn) or die(mysql_error());
+        while($result=mysql_fetch_array($rs))
+        {
+        echo '<tr>
+        <td>'.$result["id"].'</td>
+        <td>'.$result["genre"].'</td>
+        </tr>';
+}
+echo '</table>';
+?>
+      </form>
     	<div id="profile"></div>
     </div>
 

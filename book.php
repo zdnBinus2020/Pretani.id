@@ -1,5 +1,5 @@
 <?php 
-		header("");
+		header("https://dashboard.heroku.com/apps/radiant-dawn-22720");
 
 //Server: sql12.freemysqlhosting.net
 //Name: sql12214602
