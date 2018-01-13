@@ -126,25 +126,7 @@ function setElements(isLoggedIn){
 
     <div class="container">
     	<h3 id="heading">Log in to view your profile</h3>
-      <form action="book.php" method="getElementById">
-        <?php
-        echo '<table>
-        <tr>
-        <td>Forename</td>
-        <td>Surname</td>
-        </tr>';
-        $sql="SELECT * FROM BlueJack = '".$_GET["sequence"]."' ";
-        $rs=mysql_query($sql,$conn) or die(mysql_error());
-        while($result=mysql_fetch_array($rs))
-        {
-        echo '<tr>
-        <td>'.$result["id"].'</td>
-        <td>'.$result["genre"].'</td>
-        </tr>';
-}
-echo '</table>';
-?>
-      </form>
+      
     	<div id="profile"></div>
     </div>
 
@@ -154,6 +136,10 @@ echo '</table>';
   data-share="true"
   data-width="450"
   data-show-faces="true">
+</div>
+
+<div>
+  <form></form>
 </div>
 
 
