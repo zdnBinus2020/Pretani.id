@@ -1,0 +1,75 @@
+<!--	
+	Web Service 																								X
+	Login Page
+	This page is used to sign in to the Bluejack Bibliotheca mobile application.
+	There are several components in this page:
+	
+	Text Field for Username input 	@  															
+	Check box for ‘I Agree to the Terms and Conditions’ 	@
+	Button for Login 	@											
+	requirements for this page are:
+	If the Login button is clicked:
+	Validate that the Username must be filled 	@
+	Validate that the Username must be at least 3 characters long 	@
+	Validate that the ‘I Agree to the Terms and Conditions’ check box must be checked 	@
+	After the validation succeed:
+	Save the username to PHP Session 	@
+	Redirect the user to Home Page 	@
+
+
+		Home Page
+This page is shown after the user has logged in. This page shows the list of books that are available in Bluejack Bibliotheca.
+There are several components in this page:
+a.	ListView for showing list of books
+b.	Link for redirect to Find Book @
+c.	Link for Logout @
+The requirements for this page are:
+a.	Display the user’s display name on the header
+b.	Retrieve the book data through AJAX to the web service that you have hosted
+c.	For each book in the list:
+-	Display the book’s Title, Author, and Genre
+-	If the user has not made a borrowing request for the book, display ‘Borrow’ button to add the book into the user’s borrowing request
+-	If the user has made a borrowing request, do not show the ‘Borrow’ button
+d.	If the link for Find Book is clicked, redirect the user to Find Book page @
+e.	If the link for Logout is clicked, clear the user’s session, and redirect to Login Page @
+
+
+	Find Book
+This page is shown when the user wants to search for a book by its title. 
+There are several components in the page:
+a.	Text field for Book Title input @
+b.	Button for Search @
+c.	ListView for showing list of books
+d.	Link for redirect to Home Page and View Borrowing Request @
+The requirements for this page are:
+a.	If the Search button is clicked, send an AJAX request to the Find Book endpoint and display the books in the ListView.
+b.	For each book in the list:
+-	Display the book’s Title, Author, and Genre
+-	If the user has not made a borrowing request for the book, display ‘Borrow’ button to add the book into the user’s borrowing request
+-	If the user has made a borrowing request, do not show the ‘Borrow’ button
+c.	If the link for Home Page is clicked, redirect the user to the Home Page @
+
+	View Borrowing Request
+This page contains the list of books that the user wants to borrow. 
+There are several components in the page:
+a.	ListView for showing list of books
+b.	Link for redirect to Home Page and Find Book @
+c.	Label to display Number of Book Requested
+The requirements for this page are:
+a.	For each book in the list:
+-	Display the book’s Title, Author, and Genre
+-	Display ‘Remove’ button to remove the book from the borrowing request.
+b.	If the link for Home Page is clicked, redirect the user to the Home Page @
+c.	If the link for Find Book is clicked, redirect the user to Find Book page @
+d.	Calculate and display Number of Book Requested, which is obtained from the number of book currently in the borrowing request list
+
+
+	
+
+
+
+
+
+
+-->
+

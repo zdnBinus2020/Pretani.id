@@ -1,0 +1,6 @@
+<head>
+		<title>Bluejack Bibliotheca</title>
+		<link rel="stylesheet" type="text/css" href="jquery.mobile.structure-1.4.5.css">
+		<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="jquery.mobile-1.4.5.js"></script>
+	</head>
