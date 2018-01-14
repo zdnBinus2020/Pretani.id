@@ -3,6 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>Login Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="themes/Index.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" type="text/css" href="jquery.mobile.structure-1.4.5.css">
+    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="jquery.mobile-1.4.5.js"></script>
     <link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
     <style media="screen">
     	#fbBtn{margin-right: 10px;}
@@ -15,6 +22,15 @@
   </head>
   <body>
     <script>
+      $.ajax({
+        method :"GET";
+  url: "sql12.freemysqlhosting.net",
+  context: document.body
+}).done(function() {
+  $( this ).addClass( "done" );
+});
+
+
       window.fbAsyncInit = function() {
     FB.init({
       appId      : '315623622288787',
@@ -34,7 +50,7 @@
        
        function statusChangeCallback(response){
          if(response.status === 'connected'){
-           console.log('Logged in and authenticated');
+         console.log('Logged in and authenticated');
            setElements(true);
            testAPI();
          } else {
@@ -50,14 +66,38 @@
   });
 }
 
+function testAPI(){
+  FB.api('/me?field=name,email, birthday', function(response){
+    if(response && !response.eror){
+      console.log(response);
+      buildProfile(response);
+    }
+  })
+}
+
+function buildProfile(user){
+  let profile = `
+  <h3>${user.name}</h3>
+  <ul class="list-group">
+  <li class="list-group-item">User ID : ${user.id}</li>
+  <li class="list-group-item">User email : ${user.email}</li>
+  <li class="list-group-item">User birthday : ${user.birthday}</li>
+  `;
+
+}
+
 function setElements(isLoggedIn){
   if(isLoggedIn){
+    document.getElementById('profile').style.display = 'block';
     document.getElementById('logoutBtn').style.display = 'block';
     document.getElementById('fbBtn').style.display = 'none';
+    document.getElementById('heading').style.display = 'none';
 
   } else{
+    document.getElementById('profile').style.display = 'none';
     document.getElementById('logoutBtn').style.display = 'none';
     document.getElementById('fbBtn').style.display = 'block';
+    document.getElementById('heading').style.display = 'block';
 
 
   }
@@ -108,7 +148,7 @@ function setElements(isLoggedIn){
 
     	<fb:login-button 
 		id='fbBtn'
-  		scope="public_profile,email"
+  		scope="public_profile,email,user_location"
   		onlogin="checkLoginState();">
 		</fb:login-button>
 
@@ -126,7 +166,9 @@ function setElements(isLoggedIn){
 
     <div class="container">
       <h3 id="heading">Log in to view your profile <?php echo $_POST["facebook.email"]; ?></h3>
-      <div id="profile"></div>
+      <div id="profile">
+        
+      </div>
     </div>
 
     <div
