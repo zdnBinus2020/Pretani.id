@@ -184,12 +184,15 @@ function setElements(isLoggedIn){
   $result = mysqli_query($conn, $sql);
   if(mysqli_num_rows($result) > 0){
     while ($row = mysqli_fetch_assoc($result)) {
-      echo"<p>";
+     <form action="book.php" method="post">
+       echo"<p>";
       echo $row['author'];
       echo"<br>";
       echo$row['title'];
       echo"</p>";
-      # code...
+
+
+      </form>
     }
 
   } else {echo "there are no data!";}
