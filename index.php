@@ -1,6 +1,4 @@
-<?
-    include 'book.php'; 
-?>
+
 
 <!DOCTYPE html>
 <html>
