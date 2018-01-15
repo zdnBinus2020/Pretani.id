@@ -172,6 +172,16 @@ function setElements(isLoggedIn){
 
 <div>
   <?
+  $host       =   "sql12.freemysqlhosting.net";
+  $user       =   "sql12214602";
+  $password   =   "c7FkFkE4TZ";
+  $database   =   "sql12214602";
+
+  mysql_connect($host,$user,$password);
+  mysql_select_db($database);
+
+       
+
   $sql = "SELECT * FROM BlueJack";
   $result = mysqli_query($conn, $sql);
   if(mysqli_num_rows($result) > 0){
