@@ -166,22 +166,12 @@ function setElements(isLoggedIn){
 </div>
 
 
-<div>
-  <?
-  $sql = "SELECT * FROM BlueJack";
-  $result = mysqli_query($conn, $sql);
-  if(mysqli_num_rows($result) > 0){
-    while ($row = mysqli_fetch_assoc(%result)) {
-      echo"<p>";
-      echo $row['author'];
-      echo"<br>";
-      echo$row['title'];
-      echo"</p>";
-      # code...
-    }
-
-  } else {echo "there are no data!";}
-?>
+<div class="menu">
+  <form action="book.php" method="post">
+    <p>$.row['id'];</p>
+  </form>
+      </td>
+  
 </div>
 
 
